@@ -10,10 +10,12 @@ import com.example.car.repository.VehicleRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import java.time.LocalDate;
 
 @SpringBootApplication
+@EnableSwagger2
 public class CarApplication {
 
 	public static void main(String[] args) {
@@ -43,6 +45,7 @@ public class CarApplication {
 		carRepository.save(car1);
 		lorryRepository.save(lorry);
 		motorbikeRepository.save(motorbike);
+
 
 	}
 

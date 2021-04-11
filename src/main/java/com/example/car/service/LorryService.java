@@ -1,6 +1,5 @@
 package com.example.car.service;
 
-import com.example.car.entity.Car;
 import com.example.car.entity.Lorry;
 
 import java.util.List;
