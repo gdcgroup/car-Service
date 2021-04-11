@@ -3,7 +3,6 @@ package com.example.car.controller;
 import com.example.car.entity.Lorry;
 import com.example.car.exception.VehicleNotFoundException;
 import com.example.car.service.LorryService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,8 +15,7 @@ public class LorryController {
 
     private LorryService lorryService;
 
-    @Autowired
-    public void setLorryService(LorryService lorryService) {
+    public LorryController(LorryService lorryService) {
         this.lorryService = lorryService;
     }
 
@@ -31,13 +29,13 @@ public class LorryController {
     }
 
     @GetMapping("/lorries")
-    public ResponseEntity<List<Lorry>> getAllApplications() {
+    public ResponseEntity<List<Lorry>> getAllLorries() {
         List<Lorry> list = lorryService.listLorries();
         return new ResponseEntity<List<Lorry>>(list, HttpStatus.OK);
     }
 
     @PostMapping(path = "/lorries")
-    public void addCar(@RequestBody Lorry lorry){
+    public void addLorry(@RequestBody Lorry lorry){
         lorryService.addLorry(lorry);
     }
 

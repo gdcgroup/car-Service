@@ -3,7 +3,6 @@ package com.example.car.controller;
 import com.example.car.entity.Car;
 import com.example.car.exception.VehicleNotFoundException;
 import com.example.car.service.CarService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,8 +16,9 @@ public class CarController {
 
     private CarService carService;
 
-    @Autowired
-    public void setCarService(CarService carService) { this.carService = carService; }
+    public CarController(CarService carService) {
+        this.carService = carService;
+    }
 
     @GetMapping("/car/{id}")
     public  ResponseEntity<Car> getCar(@PathVariable("id") long id) {
@@ -30,7 +30,7 @@ public class CarController {
     }
 
     @GetMapping("/cars")
-    public ResponseEntity<List<Car>> getAllApplications() {
+    public ResponseEntity<List<Car>> getAllCars() {
         List<Car> list = carService.listCars();
         return new ResponseEntity<List<Car>>(list, HttpStatus.OK);
     }

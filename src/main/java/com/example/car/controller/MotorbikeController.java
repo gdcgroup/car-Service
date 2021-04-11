@@ -3,7 +3,6 @@ package com.example.car.controller;
 import com.example.car.entity.Motorbike;
 import com.example.car.exception.VehicleNotFoundException;
 import com.example.car.service.MotorbikeService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,8 +15,7 @@ public class MotorbikeController {
 
     private MotorbikeService motorbikeService;
 
-    @Autowired
-    public void setMotorbikeService(MotorbikeService motorbikeService) {
+    public MotorbikeController(MotorbikeService motorbikeService) {
         this.motorbikeService = motorbikeService;
     }
 
